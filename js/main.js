@@ -48,13 +48,9 @@ const goBack = () => {
   leapYearCard.classList.add("hidden");
   evenOddCard.classList.add("hidden");
   buttonsContainer.classList.remove("hidden");
-  const palindromeResult = document.getElementById("palindromeResult");
   palindromeResult.textContent = "";
-  const primeResult = document.getElementById("primeResult");
   primeResult.textContent = "";
-  const leapResult = document.getElementById("leapResult");
   leapResult.textContent = "";
-  const evenOddResult = document.getElementById("evenOddResult");
   evenOddResult.textContent = ""
   
 };

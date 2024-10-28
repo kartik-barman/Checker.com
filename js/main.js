@@ -1,10 +1,11 @@
-/*________________________________________________________________________________________*
-*                                                                                         *
-*                                Mr Kartik Barman                                         *
-*                      Mern Stack|| Web Developer || Full Stack                           *
-*                                                                                         *
-*_________________________________________________________________________________________*/ 
+/*_________________________________________________________________________________________*
+ *                                                                                         *
+ *                                Mr Kartik Barman                                         *
+ *                      Mern Stack|| Web Developer || Full Stack                           *
+ *                                                                                         *
+ *_________________________________________________________________________________________*/
 
+// All Selectors
 const buttonsContainer = document.querySelector("#buttonsContainer");
 const primeNumberBtn = document.getElementById("primeNumberBtn");
 const leapYearBtn = document.getElementById("leapYearBtn");
@@ -18,48 +19,63 @@ const palindromeResult = document.getElementById("palindromeResult");
 const primeResult = document.getElementById("primeResult");
 const leapResult = document.getElementById("leapResult");
 const evenOddResult = document.getElementById("evenOddResult");
+const palindromeInput = document.getElementById("palindromeInput");
+const primeUserInput = document.getElementById("primeUserInput");
+const leapUserInput = document.getElementById("leapUserInput");
+const evenOddInput = document.getElementById("evenOddInput");
 
+// Clear results and input fields
+const clearResultsAndInputs = () => {
+  palindromeResult.textContent = "";
+  primeResult.textContent = "";
+  leapResult.textContent = "";
+  evenOddResult.textContent = "";
 
+  palindromeInput.value = "";
+  primeUserInput.value = "";
+  leapUserInput.value = "";
+  evenOddInput.value = "";
+};
+
+// Event listeners for All buttons
 palindromeBtn.addEventListener("click", () => {
+  clearResultsAndInputs();
   buttonsContainer.classList.add("hidden");
   palindromeCard.classList.remove("hidden");
 });
 
 primeNumberBtn.addEventListener("click", () => {
+  clearResultsAndInputs();
   buttonsContainer.classList.add("hidden");
   primeNumberCard.classList.remove("hidden");
 });
 
 leapYearBtn.addEventListener("click", () => {
+  clearResultsAndInputs();
   buttonsContainer.classList.add("hidden");
   leapYearCard.classList.remove("hidden");
 });
 
 evenOddBtn.addEventListener("click", () => {
+  clearResultsAndInputs();
   buttonsContainer.classList.add("hidden");
   evenOddCard.classList.remove("hidden");
 });
 
-// Back button Function
-
+// Back button function
 const goBack = () => {
   palindromeCard.classList.add("hidden");
   primeNumberCard.classList.add("hidden");
   leapYearCard.classList.add("hidden");
   evenOddCard.classList.add("hidden");
   buttonsContainer.classList.remove("hidden");
-  palindromeResult.textContent = "";
-  primeResult.textContent = "";
-  leapResult.textContent = "";
-  evenOddResult.textContent = ""
-  
+  clearResultsAndInputs();
 };
 
-// Palindrome Check Function
-
+// Palindrome check function
 const checkPalindrome = () => {
-  const input = document.getElementById("palindromeInput").value;
-  const resultDiv = document.getElementById("palindromeResult");
+  const input = palindromeInput.value;
+  const resultDiv = palindromeResult;
   const reversed = input.split("").reverse().join("");
   if (input === reversed) {
     resultDiv.textContent = `${input} is a palindrome.`;
@@ -70,14 +86,16 @@ const checkPalindrome = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
-  document.getElementById("palindromeInput").value = ""
+  palindromeInput.value = "";
 };
 
-// Prime Number Check Functtion
+// Prime number check function
 const primeNumberCheck = () => {
-  const input = parseInt(document.getElementById("primeUserInput").value, 10);
+  const input = parseInt(primeUserInput.value, 10);
+  const resultDiv = primeResult;
+
   if (isNaN(input) || input <= 1) {
-    palindromeResult.textContent = "Please enter a valid number greater than 1.";
+    resultDiv.textContent = "Please enter a valid number greater than 1.";
     return;
   }
   let isPrime = true;
@@ -96,43 +114,70 @@ const primeNumberCheck = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
-  document.getElementById("primeUserInput").value = "";
+  primeUserInput.value = "";
 };
 
-// Check Leap Year Function
+// Check leap year function
 const leapYearCheck = () => {
-  const year = parseInt(document.getElementById("leapUserInput").value, 10);
+  const year = parseInt(leapUserInput.value, 10);
+  const resultDiv = leapResult;
 
   if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
-    leapResult.textContent = `${year} is a leap year.`;
-    leapResult.classList.add("text-green-700");
-    leapResult.classList.remove("text-red-500");
+    resultDiv.textContent = `${year} is a leap year.`;
+    resultDiv.classList.add("text-green-700");
+    resultDiv.classList.remove("text-red-500");
   } else {
-    leapResult.textContent = `${year} is not a leap year.`;
-    leapResult.classList.remove("text-green-700");
-    leapResult.classList.add("text-red-500");
+    resultDiv.textContent = `${year} is not a leap year.`;
+    resultDiv.classList.remove("text-green-700");
+    resultDiv.classList.add("text-red-500");
   }
-  document.getElementById("leapUserInput").value = "";
+  leapUserInput.value = "";
 };
 
-// Check Even and Odd Number Function
+// Check even/odd number function
 const checkEvenOdd = () => {
-  const input = parseInt(document.getElementById("evenOddInput").value, 10);
-  const resultDiv = document.getElementById("evenOddResult");
+  const input = parseInt(evenOddInput.value, 10);
+  const resultDiv = evenOddResult;
+
   if (isNaN(input)) {
-    evenOddResult.textContent = "Please enter a valid number.";
-    evenOddResult.classList.remove("text-green-700");
-    evenOddResult.classList.add("text-red-500");
+    resultDiv.textContent = "Please enter a valid number.";
+    resultDiv.classList.remove("text-green-700");
+    resultDiv.classList.add("text-red-500");
     return;
   }
   if (input % 2 === 0) {
-    evenOddResult.textContent = `${input} is an even number.`;
-    evenOddResult.classList.add("text-green-700");
-    evenOddResult.classList.remove("text-red-500");
+    resultDiv.textContent = `${input} is an even number.`;
+    resultDiv.classList.add("text-green-700");
+    resultDiv.classList.remove("text-red-500");
   } else {
-    evenOddResult.textContent = `${input} is an odd number.`;
-    evenOddResult.classList.remove("text-green-700");
-    evenOddResult.classList.add("text-red-500");
+    resultDiv.textContent = `${input} is an odd number.`;
+    resultDiv.classList.remove("text-green-700");
+    resultDiv.classList.add("text-red-500");
   }
-  document.getElementById("evenOddInput").value = ""
+  evenOddInput.value = "";
 };
+
+// User clicks Enter, then show result
+palindromeInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    checkPalindrome();
+  }
+});
+
+primeUserInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    primeNumberCheck();
+  }
+});
+
+leapUserInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    leapYearCheck();
+  }
+});
+
+evenOddInput.addEventListener("keypress", (e) => {
+  if (e.key === "Enter") {
+    checkEvenOdd();
+  }
+});

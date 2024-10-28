@@ -60,6 +60,7 @@ const checkPalindrome = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
+  document.getElementById("palindromeInput").value = ""
 };
 
 // Prime Number Check Functtion
@@ -86,6 +87,7 @@ const primeNumberCheck = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
+  document.getElementById("primeUserInput").value = "";
 };
 
 // Check Leap Year Function
@@ -102,6 +104,7 @@ const leapYearCheck = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
+  document.getElementById("leapUserInput").value = "";
 };
 
 // Check Even and Odd Number Function
@@ -123,4 +126,5 @@ const checkEvenOdd = () => {
     resultDiv.classList.remove("text-green-700");
     resultDiv.classList.add("text-red-500");
   }
+  document.getElementById("evenOddInput").value = ""
 };

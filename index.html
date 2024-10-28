@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checker.com || Mr Kartik Barman</title>
+    
+    <!-- Meta Tags for SEO -->
+    <meta name="author" content="Mr Kartik Barman">
+    <meta name="description" content="Welcome to Checker.com, a web application that provides various checks such as palindrome, prime number, leap year, and even or odd checks.">
+    <meta name="keywords" content="checker, palindrome, prime number, leap year, even or odd, web application, Mr Kartik Barman">
+
+    // Link CDN 
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+
+<body class="bg-gray-100 min-h-screen flex flex-col items-center justify-center">
+    <!-- Header -->
+    <h1 class="text-4xl font-bold text-blue-600">Welcome to Checker.com </h1>
+    <p class="font-bold text-green-500 mb-8"> Design By Mr Kartik Barman</p>
+
+    <!-- Checker Button Section -->
+    <div class="bg-white p-6 rounded-lg shadow-lg w-96" id="buttonsContainer">
+        <div class="space-y-4">
+            <button class="bg-blue-500 text-white font-semibold py-2 px-4 rounded-lg w-full"
+                id="palindromeBtn">Palindrome</button>
+            <button class="bg-green-500 text-white font-semibold py-2 px-4 rounded-lg w-full" id="primeNumberBtn">Prime
+                Number Check</button>
+            <button class="bg-purple-500 text-white font-semibold py-2 px-4 rounded-lg w-full" id="leapYearBtn">Leap
+                Year Check</button>
+            <button class="bg-red-500 text-white font-semibold py-2 px-4 rounded-lg w-full" id="evenOddBtn">Even or Odd
+                Number Check</button>
+        </div>
+    </div>
+
+    <!-- Palindrome Card Section -->
+    <div class="mt-8 bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto text-center hidden" id="palindromeCard">
+        <h2 class="text-2xl font-bold text-blue-600 mb-4">Check Palindrome</h2>
+
+        <!-- Input Box and Button -->
+        <input type="text" id="palindromeInput" placeholder="Enter text"
+            class="border border-gray-300 p-2 rounded-lg w-full mb-4 focus:border-blue-500 focus:outline-none">
+        <button onclick="checkPalindrome()"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full">
+            Check Palindrome
+        </button>
+
+        <!-- Result Display Section -->
+        <div id="palindromeResult" class="mt-4 text-lg font-semibold text-green-700"></div>
+
+        <!-- Back Button -->
+        <button onclick="goBack()" class="mt-4 text-blue-500 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+        </button>
+    </div>
+
+    <!-- Prime Number Card Section -->
+    <div class="mt-8 bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto text-center hidden" id="primeNumberCard">
+        <h2 class="text-2xl font-bold text-blue-600 mb-4">Check Prime Number</h2>
+
+        <!-- Input Box and Button -->
+        <input type="text" id="primeUserInput" placeholder="Enter a number"
+            class="border border-gray-300 p-2 rounded-lg w-full mb-4 focus:border-blue-500 focus:outline-none">
+        <button onclick="primeNumberCheck()"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full">
+            Check Prime Number
+        </button>
+
+        <!-- Result Display Section -->
+        <div id="primeResult" class="mt-4 text-lg font-semibold text-green-700"></div>
+
+        <!-- Back Button -->
+        <button onclick="goBack()" class="mt-4 text-blue-500 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+        </button>
+    </div>
+
+    <!-- Leap Year Card Section -->
+    <div class="mt-8 bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto text-center hidden" id="leapYearCard">
+        <h2 class="text-2xl font-bold text-blue-600 mb-4">Check Leap Year</h2>
+
+        <!-- Input Box and Button -->
+        <input type="text" id="leapUserInput" placeholder="Enter year"
+            class="border border-gray-300 p-2 rounded-lg w-full mb-4 focus:border-blue-500 focus:outline-none">
+        <button onclick="leapYearCheck()"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full">
+            Check Leap Year
+        </button>
+
+        <!-- Result Display Section -->
+        <div id="leapResult" class="mt-4 text-lg font-semibold text-green-700"></div>
+
+        <!-- Back Button -->
+        <button onclick="goBack()" class="mt-4 text-blue-500 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+        </button>
+    </div>
+
+    <!-- Even or Odd Card Section -->
+    <div class="mt-8 bg-white shadow-lg rounded-lg p-6 max-w-md mx-auto text-center hidden" id="evenOddCard">
+        <h2 class="text-2xl font-bold text-blue-600 mb-4">Check Even or Odd</h2>
+
+        <!-- Input Box and Button -->
+        <input type="text" id="evenOddInput" placeholder="Enter a number"
+            class="border border-gray-300 p-2 rounded-lg w-full mb-4 focus:border-blue-500 focus:outline-none">
+        <button onclick="checkEvenOdd()"
+            class="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded-lg w-full">
+            Check Even or Odd
+        </button>
+
+        <!-- Result Display Section -->
+        <div id="evenOddResult" class="mt-4 text-lg font-semibold text-green-700"></div>
+
+        <!-- Back Button -->
+        <button onclick="goBack()" class="mt-4 text-blue-500 flex items-center justify-center">
+            <i class="fa-solid fa-arrow-left mr-2"></i> Back
+        </button>
+    </div>
+
+    <!-- Js File Link -->
+     <script src="./js/main.js"></script>
+</body>
+
+</html>

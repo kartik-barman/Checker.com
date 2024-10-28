@@ -1,7 +1,7 @@
 /*________________________________________________________________________________________*
 *                                                                                         *
 *                                Mr Kartik Barman                                         *
-*                        Web Developer || Mern Stack || Full Stack                        *
+*                      Mern Stack|| Web Developer || Full Stack                           *
 *                                                                                         *
 *_________________________________________________________________________________________*/ 
 
@@ -14,6 +14,11 @@ const primeNumberCard = document.querySelector("#primeNumberCard");
 const leapYearCard = document.querySelector("#leapYearCard");
 const palindromeCard = document.querySelector("#palindromeCard");
 const evenOddCard = document.querySelector("#evenOddCard");
+const palindromeResult = document.getElementById("palindromeResult");
+const primeResult = document.getElementById("primeResult");
+const leapResult = document.getElementById("leapResult");
+const evenOddResult = document.getElementById("evenOddResult");
+
 
 palindromeBtn.addEventListener("click", () => {
   buttonsContainer.classList.add("hidden");
@@ -43,6 +48,15 @@ const goBack = () => {
   leapYearCard.classList.add("hidden");
   evenOddCard.classList.add("hidden");
   buttonsContainer.classList.remove("hidden");
+  const palindromeResult = document.getElementById("palindromeResult");
+  palindromeResult.textContent = "";
+  const primeResult = document.getElementById("primeResult");
+  primeResult.textContent = "";
+  const leapResult = document.getElementById("leapResult");
+  leapResult.textContent = "";
+  const evenOddResult = document.getElementById("evenOddResult");
+  evenOddResult.textContent = ""
+  
 };
 
 // Palindrome Check Function
@@ -66,9 +80,8 @@ const checkPalindrome = () => {
 // Prime Number Check Functtion
 const primeNumberCheck = () => {
   const input = parseInt(document.getElementById("primeUserInput").value, 10);
-  const resultDiv = document.getElementById("primeResult");
   if (isNaN(input) || input <= 1) {
-    resultDiv.textContent = "Please enter a valid number greater than 1.";
+    palindromeResult.textContent = "Please enter a valid number greater than 1.";
     return;
   }
   let isPrime = true;
@@ -93,16 +106,15 @@ const primeNumberCheck = () => {
 // Check Leap Year Function
 const leapYearCheck = () => {
   const year = parseInt(document.getElementById("leapUserInput").value, 10);
-  const resultDiv = document.getElementById("leapResult");
 
   if (year % 400 === 0 || (year % 4 === 0 && year % 100 !== 0)) {
-    resultDiv.textContent = `${year} is a leap year.`;
-    resultDiv.classList.add("text-green-700");
-    resultDiv.classList.remove("text-red-500");
+    leapResult.textContent = `${year} is a leap year.`;
+    leapResult.classList.add("text-green-700");
+    leapResult.classList.remove("text-red-500");
   } else {
-    resultDiv.textContent = `${year} is not a leap year.`;
-    resultDiv.classList.remove("text-green-700");
-    resultDiv.classList.add("text-red-500");
+    leapResult.textContent = `${year} is not a leap year.`;
+    leapResult.classList.remove("text-green-700");
+    leapResult.classList.add("text-red-500");
   }
   document.getElementById("leapUserInput").value = "";
 };
@@ -112,19 +124,19 @@ const checkEvenOdd = () => {
   const input = parseInt(document.getElementById("evenOddInput").value, 10);
   const resultDiv = document.getElementById("evenOddResult");
   if (isNaN(input)) {
-    resultDiv.textContent = "Please enter a valid number.";
-    resultDiv.classList.remove("text-green-700");
-    resultDiv.classList.add("text-red-500");
+    evenOddResult.textContent = "Please enter a valid number.";
+    evenOddResult.classList.remove("text-green-700");
+    evenOddResult.classList.add("text-red-500");
     return;
   }
   if (input % 2 === 0) {
-    resultDiv.textContent = `${input} is an even number.`;
-    resultDiv.classList.add("text-green-700");
-    resultDiv.classList.remove("text-red-500");
+    evenOddResult.textContent = `${input} is an even number.`;
+    evenOddResult.classList.add("text-green-700");
+    evenOddResult.classList.remove("text-red-500");
   } else {
-    resultDiv.textContent = `${input} is an odd number.`;
-    resultDiv.classList.remove("text-green-700");
-    resultDiv.classList.add("text-red-500");
+    evenOddResult.textContent = `${input} is an odd number.`;
+    evenOddResult.classList.remove("text-green-700");
+    evenOddResult.classList.add("text-red-500");
   }
   document.getElementById("evenOddInput").value = ""
 };

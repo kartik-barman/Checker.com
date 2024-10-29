@@ -26,7 +26,7 @@ Welcome to Checker.com, a web application that provides various checks such as *
 
 ## 🎥 Demo
 
-Check out a live demo of Checker.com [here](https://your-demo-link.com) or watch a quick demo video below:
+Check out a live demo of Checker.com [here](https://kartik-barman.github.io/Checker.com/) or watch a quick demo video below:
 
 ![Demo GIF](https://your-image-url.com/demo.gif)
 
